@@ -21,6 +21,9 @@ public class Main extends EngineFrame {
     
     private Color fundo = new Color(40, 50, 52);
     private Color barras = new Color(12, 18, 16);
+    private Color barraDestacada = new Color(107, 121, 121);
+    
+    private List<Integer> menorDestacado;
     
     private int[] arraySelection;
     private List<int[]> listaSelection;
@@ -41,7 +44,7 @@ public class Main extends EngineFrame {
     
     public Main() {
         
-        super ( 850, 650, "Ordenações", 60, true, false, false, true, false );
+        super ( 800, 450, "Ordenações", 60, true, false, false, true, false );
         
     }
     
@@ -59,6 +62,8 @@ public class Main extends EngineFrame {
 
         arrayMerge = new int[]{9, 10, 5, 6, 3, 1, 2, 8};
         listaMerge = new ArrayList<>();
+        
+        menorDestacado = new ArrayList();
         
         tempoParaMudar = 1;
         
@@ -116,14 +121,14 @@ public class Main extends EngineFrame {
         
         clearBackground( fundo );
         
-        drawText("Selection Sort", 20, 50, 30, barras);
-        drawText("Insertion Sort", 450, 50, 30, barras);
-        drawText("Bubble Sort", 20, getScreenHeight() - 300, 30, barras);
-        drawText("Merge Sort", 450, getScreenHeight() - 300, 30, barras);
+        drawText("Selection Sort:", 20, 50, 30, barras);
+        drawText("Insertion Sort:", 450, 50, 30, barras);
+        drawText("Bubble Sort:", 20, getScreenHeight() - 200, 30, barras);
+        drawText("Merge Sort:", 450, getScreenHeight() - 200, 30, barras);
 
-        desenharArray(listaSelection.get( pos ), 10, getScreenHeight() / 3, 30, 10, 10 );
-        desenharArray(listaInsertion.get(pos), 450, getScreenHeight() / 3, 30, 10, 10);
-        desenharArray(listaBubble.get(pos), 10, (getScreenHeight() / 2) + 180, 30, 10, 10);
+        desenharArray(listaSelection.get( pos ), 35, getScreenHeight() / 2, 30, 10, 10 );
+        desenharArray(listaInsertion.get(pos), 450, getScreenHeight() / 2, 30, 10, 10);
+        desenharArray(listaBubble.get(pos), 35, (getScreenHeight() / 2) + 180, 30, 10, 10);
         desenharArray(listaMerge.get(pos), 450, (getScreenHeight() / 2) + 180, 30, 10, 10);
         
     }
@@ -136,23 +141,32 @@ public class Main extends EngineFrame {
         
     }
     
-    private void desenharArray( 
-            
-            int[] array,
-            int x, 
-            int y, 
-            int largura, 
-            int espacamento, 
-            int tamanhoPedaco ) {
+    private void desenharArray(int[] array, int x, int y, int largura, int espacamento, int tamanhoPedaco ) {
         
-        for ( int i = 0; i < array.length; i++ ) {
-            fillRectangle( 
-                    x + i * ( largura + espacamento ), 
-                    y - array[i] * tamanhoPedaco, 
-                    largura, 
-                    array[i] * tamanhoPedaco, 
-                    barras
-            );
+        int movido = -1;
+        
+        if(pos < menorDestacado.size()){
+            movido = menorDestacado.get(pos);
+        }
+        
+        for (int i = 0; i < array.length; i++) {
+            if (i == movido) {
+                fillRectangle(
+                        x + i * (largura + espacamento),
+                        y - array[i] * tamanhoPedaco,
+                        largura,
+                        array[i] * tamanhoPedaco,
+                        barraDestacada
+                );
+            } else {
+                fillRectangle(
+                        x + i * (largura + espacamento),
+                        y - array[i] * tamanhoPedaco,
+                        largura,
+                        array[i] * tamanhoPedaco,
+                        barras
+                );
+            }
         }
         
     }
@@ -173,6 +187,7 @@ public class Main extends EngineFrame {
             arraySelection[i] = arraySelection[menor];
             arraySelection[menor] = t;
             copiarArray(listaSelection, arraySelection );
+            menorDestacado.add(menor);
         }
         
     }
@@ -195,8 +210,8 @@ public class Main extends EngineFrame {
     }
     
     public void bubble(int[] arrayBubble) {
-        
-            for (int i = 0; i < arrayBubble.length - 1; i++) {
+
+        for (int i = 0; i < arrayBubble.length - 1; i++) {
             for (int j = 0; j < arrayBubble.length - i - 1; j++) {
                 if (arrayBubble[j] > arrayBubble[j + 1]) {
                     int t = arrayBubble[j];
@@ -206,7 +221,7 @@ public class Main extends EngineFrame {
             }
             copiarArray(listaBubble, arrayBubble);
         }
-            
+
     }
     
     public void mergeSort(int[] arrayMerge) {
