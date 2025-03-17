@@ -23,7 +23,8 @@ public class Main extends EngineFrame {
     private Color barras = new Color(12, 18, 16);
     private Color barraDestacada = new Color(107, 121, 121);
     
-    private List<Integer> menorDestacado;
+//    not working properly
+//    private List<Integer> menorDestacado;
     
     private int[] arraySelection;
     private List<int[]> listaSelection;
@@ -63,7 +64,8 @@ public class Main extends EngineFrame {
         arrayMerge = new int[]{9, 10, 5, 6, 3, 1, 2, 8};
         listaMerge = new ArrayList<>();
         
-        menorDestacado = new ArrayList();
+//        not working properly
+//        menorDestacado = new ArrayList();
         
         tempoParaMudar = 1;
         
@@ -141,34 +143,36 @@ public class Main extends EngineFrame {
         
     }
     
-    private void desenharArray(int[] array, int x, int y, int largura, int espacamento, int tamanhoPedaco ) {
-        
-        int movido = -1;
-        
-        if(pos < menorDestacado.size()){
-            movido = menorDestacado.get(pos);
-        }
-        
+    private void desenharArray(int[] array, int x, int y, int largura, int espacamento, int tamanhoPedaco) {
+
+//        not working properly
+//        int movido = -1;
+//        if(pos < menorDestacado.size()){
+//            movido = menorDestacado.get(pos);
+//        }
         for (int i = 0; i < array.length; i++) {
-            if (i == movido) {
-                fillRectangle(
-                        x + i * (largura + espacamento),
-                        y - array[i] * tamanhoPedaco,
-                        largura,
-                        array[i] * tamanhoPedaco,
-                        barraDestacada
-                );
-            } else {
-                fillRectangle(
-                        x + i * (largura + espacamento),
-                        y - array[i] * tamanhoPedaco,
-                        largura,
-                        array[i] * tamanhoPedaco,
-                        barras
-                );
-            }
+            
+//            not working properly
+//            if (i == movido) {
+//                fillRectangle(
+//                        x + i * (largura + espacamento),
+//                        y - array[i] * tamanhoPedaco,
+//                        largura,
+//                        array[i] * tamanhoPedaco,
+//                        barraDestacada
+//                );
+//            }
+            
+            fillRectangle(
+                    x + i * (largura + espacamento),
+                    y - array[i] * tamanhoPedaco,
+                    largura,
+                    array[i] * tamanhoPedaco,
+                    barras
+            );
+
         }
-        
+
     }
     
     private void selection( int[] arraySelection ) {
@@ -187,7 +191,9 @@ public class Main extends EngineFrame {
             arraySelection[i] = arraySelection[menor];
             arraySelection[menor] = t;
             copiarArray(listaSelection, arraySelection );
-            menorDestacado.add(menor);
+            
+//            not working properly
+//            menorDestacado.add(menor);
         }
         
     }
