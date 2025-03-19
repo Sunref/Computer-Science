@@ -1,6 +1,7 @@
 package template;
 
 import br.com.davidbuzatto.jsge.core.engine.EngineFrame;
+import br.com.davidbuzatto.jsge.imgui.GuiButton;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +23,8 @@ public class Main extends EngineFrame {
     private Color fundo = new Color(40, 50, 52);
     private Color barras = new Color(12, 18, 16);
     private Color barraDestacada = new Color(107, 121, 121);
+    
+    private GuiButton restart;
     
 //    not working properly
 //    private List<Integer> menorDestacado;
@@ -51,6 +54,8 @@ public class Main extends EngineFrame {
     
     @Override
     public void create() {
+        
+        restart = new GuiButton(720, 0, 80, 30, "Reiniciar", this);
         
         arraySelection = new int[]{ 9, 10, 5, 6, 3, 1, 2, 8 };
         listaSelection = new ArrayList<>();
@@ -85,6 +90,12 @@ public class Main extends EngineFrame {
 
     @Override
     public void update( double delta ) {
+        
+        restart.update(delta);
+        
+        if(restart.isMousePressed()){
+            reiniciarArray();
+        }
         
         contadorTempo += delta;
         
@@ -133,6 +144,8 @@ public class Main extends EngineFrame {
         desenharArray(listaBubble.get(pos), 35, (getScreenHeight() / 2) + 180, 30, 10, 10);
         desenharArray(listaMerge.get(pos), 450, (getScreenHeight() / 2) + 180, 30, 10, 10);
         
+        restart.draw();
+        
     }
     
     private void copiarArray( List<int[]> lista, int[] array ) {
@@ -173,6 +186,33 @@ public class Main extends EngineFrame {
 
         }
 
+    }
+    
+    private void reiniciarArray(){
+        
+        arraySelection = new int[]{ 9, 10, 5, 6, 3, 1, 2, 8 };
+       
+        arrayInsertion = new int[]{9, 10, 5, 6, 3, 1, 2, 8};
+        arrayBubble = new int[]{9, 10, 5, 6, 3, 1, 2, 8};
+        arrayMerge = new int[]{9, 10, 5, 6, 3, 1, 2, 8};
+        
+        listaSelection.clear();
+        listaInsertion.clear();
+        listaBubble.clear();
+        listaMerge.clear();
+        
+        pos = 0;
+        
+        copiarArray(listaSelection, arraySelection);
+        copiarArray(listaInsertion, arrayInsertion);
+        copiarArray(listaBubble, arrayBubble);
+        copiarArray(listaMerge, arrayMerge);
+        
+        selection(arraySelection);
+        insertion(arrayInsertion);
+        bubble(arrayBubble);
+        mergeSort(arrayMerge);
+        
     }
     
     private void selection( int[] arraySelection ) {
@@ -225,7 +265,9 @@ public class Main extends EngineFrame {
                     arrayBubble[j + 1] = t;
                 }
             }
+            
             copiarArray(listaBubble, arrayBubble);
+            
         }
 
     }
