@@ -191,7 +191,6 @@ public class Main extends EngineFrame {
     private void reiniciarArray(){
         
         arraySelection = new int[]{ 9, 10, 5, 6, 3, 1, 2, 8 };
-       
         arrayInsertion = new int[]{9, 10, 5, 6, 3, 1, 2, 8};
         arrayBubble = new int[]{9, 10, 5, 6, 3, 1, 2, 8};
         arrayMerge = new int[]{9, 10, 5, 6, 3, 1, 2, 8};
