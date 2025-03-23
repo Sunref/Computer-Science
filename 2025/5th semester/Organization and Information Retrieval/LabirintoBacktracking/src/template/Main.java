@@ -31,16 +31,16 @@ public class Main extends EngineFrame {
     public Main() {
 
         super(
-                450, // largura
-                450, // altura
+                450,            // largura
+                450,            // altura
                 "Window Title", // título
-                60, // quadros por segundo desejado
-                true, // suavização
-                false, // redimensionável   
-                false, // tela cheia
-                true, // sem decoração
-                false, // sempre no topo
-                false // fundo invisível
+                60,             // quadros por segundo desejado
+                true,           // suavização
+                false,          // redimensionável   
+                false,          // tela cheia
+                true,           // sem decoração
+                false,          // sempre no topo
+                false           // fundo invisível
         );
 
     }
@@ -54,12 +54,6 @@ public class Main extends EngineFrame {
     @Override
     public void create() {
 
-        listaLabirinto = new ArrayList<>();
-        arrayLabirinto = new int[7][7]; // O labirinto é 7x7
-
-        listaLabirinto.add(arrayLabirinto);
-        pos = 0;
-        
         // Labirinto onde 0 é o caminho a ser seguido, 1 indica parede e 2 o final do labirinto.
         arrayLabirinto = new int[][]{
             {0, 0, 0, 0, 0, 1, 1},
@@ -70,7 +64,12 @@ public class Main extends EngineFrame {
             {0, 1, 0, 0, 1, 0, 1},
             {1, 1, 1, 1, 1, 0, 0}
         };
+        listaLabirinto = new ArrayList<>();
+         // O labirinto é 7x7
 
+        listaLabirinto.add(arrayLabirinto);
+        pos = 0;
+        
     }
 
     /**
