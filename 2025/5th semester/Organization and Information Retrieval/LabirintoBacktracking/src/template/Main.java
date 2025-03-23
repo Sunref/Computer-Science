@@ -1,6 +1,7 @@
 package template;
 
 import br.com.davidbuzatto.jsge.core.engine.EngineFrame;
+import java.awt.Color;
 import java.util.ArrayList;
 
 /**
@@ -18,11 +19,14 @@ import java.util.ArrayList;
  */
 public class Main extends EngineFrame {
 
-    // Labirinto onde 0 é o caminho a ser seguido, 1 indica parede e 2 indica o final do labirinto.
-    // O labirinto é 7x7
+    // Labirinto onde 0 é o caminho a ser seguido, 1 indica parede e 2 o final do labirinto.
     private int[][] arrayLabirinto;
     private ArrayList<int[][]> listaLabirinto;
     private int pos;
+    
+    private Color parede = new Color(0, 0, 0);
+    private Color finalLab = new Color (255, 105, 180);
+    private Color caminho = new Color(255, 255, 255);
 
     public Main() {
 
@@ -51,11 +55,12 @@ public class Main extends EngineFrame {
     public void create() {
 
         listaLabirinto = new ArrayList<>();
-        arrayLabirinto = new int[7][7];
+        arrayLabirinto = new int[7][7]; // O labirinto é 7x7
 
         listaLabirinto.add(arrayLabirinto);
         pos = 0;
-
+        
+        // Labirinto onde 0 é o caminho a ser seguido, 1 indica parede e 2 o final do labirinto.
         arrayLabirinto = new int[][]{
             {0, 0, 0, 0, 0, 1, 1},
             {0, 1, 0, 1, 0, 0, 0},
@@ -79,7 +84,7 @@ public class Main extends EngineFrame {
      */
     @Override
     public void update(double delta) {
-
+        
     }
 
     /**
@@ -94,36 +99,36 @@ public class Main extends EngineFrame {
         clearBackground(PURPLE);
 
         if (!listaLabirinto.isEmpty() && pos < listaLabirinto.size()) {
-            desenharLabirinto(listaLabirinto.get(pos), getScreenWidth() / 50, getScreenHeight() / 50, 61, 1, 61);
+            desenharLabirinto(listaLabirinto.get(pos), getScreenWidth() / 50, getScreenHeight() / 50, 61, 1);
         }
 
     }
 
-    private void desenharLabirinto(int[][] arrayLabirinto, int x, int y, int largura, int espacamento, int tamanhoPedaco) {
+    private void desenharLabirinto(int[][] arrayLabirinto, int x, int y, int largura, int espacamento) {
 
         for (int i = 0; i < arrayLabirinto.length; i++) {
             for (int j = 0; j < arrayLabirinto[i].length; j++) {
                 switch (arrayLabirinto[i][j]) {
-                    case 2 -> fillRectangle(
+                    case 0 -> fillRectangle(
                                 x + j * (largura + espacamento),
                                 y + i * (largura + espacamento),
                                 largura,
                                 largura,
-                                PINK
+                                caminho
                         );
                     case 1 -> fillRectangle(
                                 x + j * (largura + espacamento),
                                 y + i * (largura + espacamento),
                                 largura,
                                 largura,
-                                BLACK
+                                parede
                         );
-                    case 0 -> fillRectangle(
+                    case 2 -> fillRectangle(
                                 x + j * (largura + espacamento),
                                 y + i * (largura + espacamento),
                                 largura,
                                 largura,
-                                WHITE
+                                finalLab
                         );
                 }
             }
