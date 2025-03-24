@@ -18,14 +18,17 @@ import java.util.Stack;
  *
  */
 
-public class Main extends EngineFrame {
+public class Main extends EngineFrame{
 
     private int[][] arrayLabirinto;
+    private int[][] tentativas;
+    private Stack<int[]> pilhaCaminho;
+    
     private boolean andando;
     private double tempoParaMudar;
     private double contadorTempo;
-    private Stack<int[]> pilhaCaminho;
-
+    
+    // Cores... São muitas...
     private final Color parede = new Color(40, 50, 52);
     private final Color fundo = new Color(20, 30, 30);
     private final Color finalLab = new Color(157, 182, 163);
@@ -33,7 +36,7 @@ public class Main extends EngineFrame {
     private final Color visitado = new Color(157, 182, 163);
     private final Color concluido = new Color(105, 152, 115);
 
-    public Main() {
+    public Main(){
         
         super(
                 450,                    // Largura
@@ -58,9 +61,9 @@ public class Main extends EngineFrame {
      *
      */
     @Override
-    public void create() {
+    public void create(){
         
-        // Labirinto 7x7 onde:
+        // Layout do labirinto (7, 7) onde:
         // 0 = caminho livre, 1 = parede, 2 = destino
         arrayLabirinto = new int[][]{
                 {0, 0, 0, 0, 0, 1, 1},
@@ -71,6 +74,8 @@ public class Main extends EngineFrame {
                 {0, 1, 0, 0, 1, 0, 1},
                 {1, 1, 1, 1, 1, 0, 0}
         };
+        
+        tentativas = new int[arrayLabirinto.length][arrayLabirinto[0].length];
 
         tempoParaMudar = 0.5;
         contadorTempo = 0;
@@ -91,7 +96,7 @@ public class Main extends EngineFrame {
      *
      */
     @Override
-    public void update(double delta) {
+    public void update(double delta){
         
         contadorTempo += delta;
 
@@ -109,22 +114,24 @@ public class Main extends EngineFrame {
      *
      */
     @Override
-    public void draw() {
+    public void draw(){
         
         clearBackground(fundo);
         
         desenharLabirinto(arrayLabirinto, getScreenWidth() / 50, getScreenHeight() / 50, 61, 1);
         
-        drawText("Fim", 335, 165, 15, fundo);
+        drawText("Fim", 335, 163, 15, fundo);
+        tentativas();
         
     }
 
+    // Desenhando o layout do labirinto;
     private void desenharLabirinto(int[][] arrayLabirinto, int x, int y, int largura, int espacamento) {
 
-        for (int i = 0; i < arrayLabirinto.length; i++) {
-            for (int j = 0; j < arrayLabirinto[i].length; j++) {
-                switch (arrayLabirinto[i][j]) {
-                    case 0 ->
+        for (int i = 0; i < arrayLabirinto.length; i++){
+            for (int j = 0; j < arrayLabirinto[i].length; j++){
+                switch (arrayLabirinto[i][j]){
+                    case 0 -> // Caminho livre
                         fillRectangle(
                                 x + j * (largura + espacamento),
                                 y + i * (largura + espacamento),
@@ -132,7 +139,7 @@ public class Main extends EngineFrame {
                                 largura,
                                 caminho
                         );
-                    case 1 ->
+                    case 1 -> // Parede
                         fillRectangle(
                                 x + j * (largura + espacamento),
                                 y + i * (largura + espacamento),
@@ -140,7 +147,7 @@ public class Main extends EngineFrame {
                                 largura,
                                 parede
                         );
-                    case 2 ->
+                    case 2 -> // Final do labirinto
                         fillRectangle(
                                 x + j * (largura + espacamento),
                                 y + i * (largura + espacamento),
@@ -148,7 +155,7 @@ public class Main extends EngineFrame {
                                 largura,
                                 finalLab
                         );
-                    case 3 ->
+                    case 3 -> // Caminho percorrido
                         fillRectangle(
                                 x + j * (largura + espacamento),
                                 y + i * (largura + espacamento),
@@ -156,7 +163,7 @@ public class Main extends EngineFrame {
                                 largura,
                                 visitado
                         );
-                    case 4 ->
+                    case 4 -> // Chegada no final do labirinto
                         fillRectangle(
                                 x + j * (largura + espacamento),
                                 y + i * (largura + espacamento),
@@ -170,42 +177,71 @@ public class Main extends EngineFrame {
 
     }
     
-    private void resolverLabirinto() {
+    // Percorre o labirinto buscando a solução
+    private void resolverLabirinto(){
 
-        if (!pilhaCaminho.isEmpty()) {
+        if (!pilhaCaminho.isEmpty()){ // Ainda existe caminho para explorar
+            
             int[] atual = pilhaCaminho.peek();
             int x = atual[0];
             int y = atual[1];
 
-            if (arrayLabirinto[x][y] == 2) {
+            if (arrayLabirinto[x][y] == 2){ // Chegou ao final
                 andando = true;
-                arrayLabirinto[x][y] = 4;
+                arrayLabirinto[x][y] = 4; // Definindo nova cor para representar quando o final é alcançado
                 return;
             }
 
-            arrayLabirinto[x][y] = 3;
+            arrayLabirinto[x][y] = 3; // Definindo nova cor para representar o caminho percorrido
+            tentativas[x][y]++; // Contando as tentativas de cada bloco
 
-            int[][] direcoes = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+            int[][] direcoes = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}}; // Baixo, direita, cima, esquerda
             boolean encontrouNovoCaminho = false;
-
-            for (int[] d : direcoes) {
+            
+            // Tentando encontrar um novo caminho válido no labirinto
+            for (int[] d : direcoes){
                 int novoX = x + d[0];
                 int novoY = y + d[1];
-
+                
                 if (novoX >= 0 && novoX < arrayLabirinto.length
                         && novoY >= 0 && novoY < arrayLabirinto[0].length
-                        && (arrayLabirinto[novoX][novoY] == 0 || arrayLabirinto[novoX][novoY] == 2)) {
+                        && (arrayLabirinto[novoX][novoY] == 0 
+                        || arrayLabirinto[novoX][novoY] == 2)
+                    ){
                     pilhaCaminho.push(new int[]{novoX, novoY});
                     encontrouNovoCaminho = true;
                     break;
                 }
             }
 
-            if (!encontrouNovoCaminho) {
+            if (!encontrouNovoCaminho){
                 pilhaCaminho.pop();
             }
         }
 
+    }
+    
+    // Conta as tentativas de cada bloco do labirinto... Não está 100% correto
+    private void tentativas(){
+        
+        int xTela = getScreenWidth() / 50 + 5; 
+        int yTela = getScreenHeight() / 50 + 2;
+        int largura = 60; 
+        int espacamento = 3;
+
+        for (int i = 0; i < arrayLabirinto.length; i++) {
+            for (int j = 0; j < arrayLabirinto[i].length; j++) {
+                
+                if (tentativas[i][j] > 0) {
+                    int x = xTela + j * (largura + espacamento) + largura / 3; // Calculando o espaço para a impressão das tentativas
+                    int y = yTela + i * (largura + espacamento) + 2 * largura / 3;
+
+                    drawText(String.valueOf(tentativas[i][j]), x, y, 15, BLACK);
+                }
+                
+            }
+        }
+        
     }
 
     /**
