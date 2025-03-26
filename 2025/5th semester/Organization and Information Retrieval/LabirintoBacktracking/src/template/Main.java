@@ -193,8 +193,9 @@ public class Main extends EngineFrame{
             }
 
             arrayLabirinto[x][y] = 3; // Definindo nova cor para representar o caminho percorrido
-            tentativas[x][y]++; // Contando as tentativas de cada bloco
-
+            tentativas[x][y] = 1; // Contando as tentativas de cada bloco
+            tentativas[x][y]--;
+            
             int[][] direcoes = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}}; // Baixo, direita, cima, esquerda
             boolean encontrouNovoCaminho = false;
             
@@ -202,6 +203,7 @@ public class Main extends EngineFrame{
             for (int[] d : direcoes){
                 int novoX = x + d[0];
                 int novoY = y + d[1];
+                tentativas[x][y]++;
                 
                 if (novoX >= 0 && novoX < arrayLabirinto.length
                         && novoY >= 0 && novoY < arrayLabirinto[0].length
@@ -212,11 +214,14 @@ public class Main extends EngineFrame{
                     encontrouNovoCaminho = true;
                     break;
                 }
+                
             }
 
             if (!encontrouNovoCaminho){
                 pilhaCaminho.pop();
+                tentativas[x][y]--;
             }
+            
         }
 
     }
