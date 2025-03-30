@@ -1,4 +1,4 @@
-[submodule "2025/5th semester/Compiler Constuction/2025/5th semester/Compiler Constuction/Scanner"]
-	path = 2025/5th semester/Compiler Constuction/2025/5th semester/Compiler Constuction/Scanner
+[submodule "2025/5th semester/Compiler Constuction/Scanner"]
+	path = 2025/5th semester/Compiler Constuction/Scanner
 	url = https://github.com/Sunref/Scanner-Project
 	branch = main
