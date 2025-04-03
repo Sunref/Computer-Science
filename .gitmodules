@@ -5,3 +5,6 @@
 [submodule "2025/5th semester/Compiler Construction/Parser"]
 	path = 2025/5th semester/Compiler Construction/Parser
 	url = https://github.com/Sunref/Project-ParserV1.git
+[submodule "2024/4rd semester/Data Structure/Graph Structures"]
+	path = 2024/4rd semester/Data Structure/Graph Structures
+	url = https://github.com/Sunref/Graph-Data-Structures.git
