@@ -8,3 +8,6 @@
 [submodule "2024/4rd semester/Data Structure/Graph Structures"]
 	path = 2024/4rd semester/Data Structure/Graph Structures
 	url = https://github.com/Sunref/Graph-Data-Structures.git
+[submodule "2024/4rd semester/Data Structure/Non Linear Structures"]
+	path = 2024/4rd semester/Data Structure/Non Linear Structures
+	url = https://github.com/RezeScarlet/Non-Linear-Structures.git
