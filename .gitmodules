@@ -2,3 +2,6 @@
 	path = 2025/5th semester/Compiler Construction/Scanner
 	url = https://github.com/Sunref/Scanner-Project
 	branch = main
+[submodule "2025/5th semester/Compiler Construction/Parser"]
+	path = 2025/5th semester/Compiler Construction/Parser
+	url = https://github.com/Sunref/Project-ParserV1.git
