@@ -1,0 +1,93 @@
+/* Geral */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff1fd;
+    color: #b2198b;
+    line-height: 1.6;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #fc9dd7;
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+    border-bottom: 3px solid #b2198b;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+/* Navegação */
+nav {
+    background-color: white;
+    padding: 0.5em 0;
+    text-align: center;
+}
+
+nav a {
+    margin: 0 1em;
+    text-decoration: none;
+    color: #b2198b;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #b2198b;
+}
+
+/* Conteúdo Principal */
+main {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+section h2 {
+    border-bottom: 2px solid #e74c3c;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+/* Imagem */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+/* Tabela */
+table {
+    margin: 0 auto;
+    background-color: white;
+}
+
+table img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+}
+
+/* Rodapé */
+footer {
+    background-color: #fc9dd7;
+    color: white;
+    text-align: center;
+    padding: 0.1em 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    font-size: 0.8em;
+}
