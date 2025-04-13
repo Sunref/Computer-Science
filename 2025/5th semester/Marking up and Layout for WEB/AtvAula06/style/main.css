@@ -12,7 +12,7 @@ body {
 /* Estilos do cabeçalho */
 .header {
     height: 10%;
-    background-color: black;
+    background-color: #080608;
     text-align: center;
     line-height: 100%;
     color: #ffc5c5;
@@ -23,7 +23,7 @@ body {
 /* Estilos do rodapé */
 .footer {
     height: 15%;
-    background-color: black;
+    background-color: #080608;
     text-align: center;
     line-height: 100%;
     margin-top: auto;
