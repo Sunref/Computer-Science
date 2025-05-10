@@ -8,6 +8,7 @@ typedef struct{
 
 }Fracao;
 
+void recebeFracao( Fracao *f1, Fracao *f2 );
 Fracao somar( const Fracao *f1, const Fracao *f2 );
 Fracao subtrair( const Fracao *f1, const Fracao *f2 );
 Fracao multiplicar( const Fracao *f1, const Fracao *f2 );
@@ -20,21 +21,7 @@ int main(){
     Fracao f2;
     Fracao f;
 
-    printf("Fracao 1");
-    printf("    Numerador: ");
-    scanf("%f", &f1.numerador);
-    printf("    Denominador: ");
-    scanf("%f", &f1.denominador);
-
-    printf("\nFracao 2");
-    printf("    Numerador: ");
-    scanf("%f", &f2.numerador);
-    printf("    Denominador: ");
-    scanf("%f", &f2.denominador);
-
-    f = subtrair(&f1, &f2);
-    f = multiplicar(&f1, &f2);
-    f = dividir(&f1, &f2);
+    recebeFracao(&f1, &f2);
 
     printf("\n%.2f/%.2f + %.2f/%.2f = ",f1.numerador,f1.denominador,f2.numerador,f2.denominador);
     f = somar(&f1, &f2);
@@ -51,8 +38,25 @@ int main(){
     printf("\n%.2f/%.2f / %.2f/%.2f = ",f1.numerador,f1.denominador,f2.numerador,f2.denominador);
     f = dividir(&f1, &f2);
     imprimirFracao(&f);
+    printf("\n");
 
     return 0;
+}
+
+void recebeFracao( Fracao *f1, Fracao *f2 ){
+
+    printf("Fração 1\n");
+    printf("    Numerador: ");
+    scanf("%f", &f1->numerador);
+    printf("    Denominador: ");
+    scanf("%f", &f1->denominador);
+
+    printf("\nFração 2\n");
+    printf("    Numerador: ");
+    scanf("%f", &f2->numerador);
+    printf("    Denominador: ");
+    scanf("%f", &f2->denominador);
+
 }
 
 Fracao somar( const Fracao *f1, const Fracao *f2 ){

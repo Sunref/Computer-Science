@@ -1,0 +1,75 @@
+/* Estilos gerais */
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    font-family: "Roboto", sans-serif;
+    background-color: #1e1e2f;
+    color: #964b00;
+}
+
+/* Estilos do cabeçalho */
+.header {
+    height: 10%;
+    background-color: #080608;
+    text-align: center;
+    line-height: 100%;
+    color: #ffc5c5;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Estilos do rodapé */
+.footer {
+    height: 10%;
+    background-color: black;
+    text-align: center;
+    line-height: 100%;
+    margin-top: auto;
+    color: #ffc5c5;
+    font-size: 1rem;
+}
+
+/* Estilos do conteúdo */
+.content {
+    flex: 1;
+    font-size: 24px;
+    background-color: #694553;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    margin-left: 20%;
+}
+
+/* Estilos do Layout */
+.leftSideBar {
+    width: 20%;
+    background-color: #2a252e;
+    color: #ffc5c5;
+    position: absolute;
+    height: 80%;
+    top: 10%;
+    left: 0;
+    border-radius: 0 10px 10px 0;
+    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.leftSideBar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding-top: 20px;
+}
+
+.leftSideBar ul li a {
+    color: #ffc5c5;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+.leftSideBar ul li a:hover {
+    background-color: black;
+}
