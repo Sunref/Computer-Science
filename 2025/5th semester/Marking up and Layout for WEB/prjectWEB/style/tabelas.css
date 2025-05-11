@@ -1,0 +1,186 @@
+/* Estilos gerais para a página de tabelas */
+body {
+    background-color: #694553;
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+/* Estilos para elementos destacados */
+.destaque-titulo {
+    color: #b26d96;
+    font-weight: bold;
+}
+
+.destaque-valor {
+    color: #ffc5c5;
+    font-weight: bold;
+}
+
+.destaque-nome {
+    color: #b26d96;
+    font-style: italic;
+}
+
+.status-sim, .status-ativo {
+    color: #a8e6cf;
+    font-weight: bold;
+}
+
+.status-nao, .status-inativo {
+    color: #ffb6b6;
+    font-weight: bold;
+}
+
+.tables-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #ffc5c5;
+    font-family: "Roboto", sans-serif;
+}
+
+.tables-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ffc5c5;
+    font-size: 2rem;
+}
+
+.table-section {
+    background-color: #2a252e;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.table-section h3 {
+    color: #ffc5c5;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* Estilos base para todas as tabelas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    color: white;
+    background-color: #1e1e2f;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #080608;
+    color: #ffc5c5;
+    font-weight: bold;
+}
+
+/* Tabela com efeito zebra */
+.tabela-economias {
+    border: 2px solid #ffc5c5;
+}
+
+.tabela-economias thead tr {
+    border-bottom: 2px solid #ffc5c5;
+}
+
+.tabela-economias-zebra tr:nth-child(even) {
+    background-color: rgba(132, 73, 115, 0.25);
+}
+
+.tabela-economias-zebra tr:hover {
+    background-color: rgba(255, 197, 197, 0.3);
+    color: #fff;
+}
+
+/* Tabela com bordas colapsadas */
+.tabela-bordas-colapsadas {
+    border-collapse: collapse;
+    border: 2px solid #ffc5c5;
+}
+
+.tabela-bordas-colapsadas th, 
+.tabela-bordas-colapsadas td {
+    border: 1px solid #b26d96;
+}
+
+/* Tabela responsiva */
+.tabela-responsiva {
+    overflow-x: auto;
+}
+
+.tabela-responsiva table {
+    border: 2px solid #ffc5c5;
+    min-width: 600px; /* Força horizontal scroll em telas pequenas */
+}
+
+.tabela-responsiva th, 
+.tabela-responsiva td {
+    border-bottom: 1px solid #b26d96;
+}
+
+/* Tabela com hover */
+.tabela-hover {
+    border: 2px solid #ffc5c5;
+}
+
+.tabela-hover tbody tr {
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.tabela-hover tbody tr:hover {
+    background-color: rgba(166, 87, 150, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #fff;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .tables-container {
+        padding: 15px;
+    }
+    
+    .table-section {
+        padding: 15px;
+    }
+    
+    th, td {
+        padding: 8px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tables-container {
+        padding: 10px;
+    }
+    
+    .table-section {
+        padding: 10px;
+    }
+    
+    th, td {
+        padding: 6px 8px;
+        font-size: 0.9rem;
+    }
+    
+    .tables-container h2 {
+        font-size: 1.6rem;
+    }
+    
+    .table-section h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* Ajustes para o container dentro do iframe */
+.tables-container {
+    padding-bottom: 20px;
+}

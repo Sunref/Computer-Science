@@ -1,0 +1,155 @@
+/* Estilos gerais para a página de contato */
+body {
+    background-color: #694553;
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+.contact-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #ffc5c5;
+    font-family: "Roboto", sans-serif;
+}
+
+.contact-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ffc5c5;
+    font-size: 2rem;
+}
+
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+.info-block, .form-block {
+    flex: 1;
+    min-width: 300px;
+    background-color: #2a252e;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.info-block h3, .form-block h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #ffc5c5;
+}
+
+.info-block p {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.social-media {
+    margin-top: 30px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #080608;
+    color: #ffc5c5;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.social-icon:hover {
+    background-color: #964b00;
+    transform: scale(1.1);
+}
+
+/* Estilos do formulário */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #ffc5c5;
+}
+
+.form-group input, .form-group textarea {
+    padding: 10px;
+    border: 1px solid #694553;
+    border-radius: 5px;
+    background-color: #1e1e2f;
+    color: #ffc5c5;
+    font-family: inherit;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: #964b00;
+    box-shadow: 0 0 5px rgba(150, 75, 0, 0.5);
+}
+
+.submit-btn {
+    background-color: #ffc5c5;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 10px;
+    align-self: flex-start;
+}
+
+.submit-btn:hover {
+    background-color: #080608;
+    color: #ffc5c5;
+}
+
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .contact-info {
+        flex-direction: column;
+    }
+    
+    .info-block, .form-block {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-container {
+        padding: 10px;
+    }
+    
+    .info-block, .form-block {
+        padding: 15px;
+    }
+    
+    .submit-btn {
+        width: 100%;
+    }
+}

@@ -1,0 +1,136 @@
+/* Custom styles to maintain project color scheme while enhancing Bootstrap */
+body {
+    background-color: #694553;
+    color: #ffc5c5;
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Text color for contact info */
+.card-body p {
+    color: white;
+}
+
+h2, h3, h4, h5, .card-title {
+    color: #ffc5c5;
+}
+
+.container {
+    max-width: 1140px;
+    padding-top: 20px;
+}
+
+/* Card styling */
+.contact-card {
+    background-color: #2a252e;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+/* Icon styling */
+.icon-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #080608;
+    border-radius: 50%;
+    color: #ffc5c5;
+}
+
+/* Social icons */
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #080608;
+    color: #ffc5c5;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.social-icon:hover {
+    background-color: #964b00;
+    transform: scale(1.1);
+    color: #ffc5c5;
+}
+
+/* Form styling */
+.form-control {
+    background-color: #1e1e2f;
+    border: 1px solid #694553;
+    color: #ffc5c5;
+}
+
+.form-control:focus {
+    background-color: #1e1e2f;
+    border-color: #964b00;
+    box-shadow: 0 0 0 0.25rem rgba(150, 75, 0, 0.25);
+    color: #ffc5c5;
+}
+
+.form-floating label {
+    color: #694553;
+}
+
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label {
+    color: #964b00;
+}
+
+/* Button styling */
+.btn-send {
+    background-color: #ffc5c5;
+    color: black;
+    border: none;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-send:hover {
+    background-color: #080608;
+    color: #ffc5c5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card-body {
+        padding: 1.5rem;
+    }
+    
+    .container {
+        padding-top: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .card-body {
+        padding: 1.25rem;
+    }
+    
+    .container {
+        padding-top: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+/* Container adjustments for iframe */
+.container {
+    padding-bottom: 20px;
+}

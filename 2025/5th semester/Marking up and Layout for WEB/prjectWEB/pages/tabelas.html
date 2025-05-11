@@ -1,0 +1,168 @@
+<!--
+
+Atividade por: Fernanda Martins da Silva
+BV3032345
+
+-->
+
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Estilização de Tabelas</title>
+        <link rel="stylesheet" href="../style/tabelas.css" />
+    </head>
+    <body>
+        <div class="tables-container">
+            <h2>Estilização de Tabelas <span class="destaque-titulo">com CSS</span></h2>
+            
+            <div class="table-section">
+                <h3>Tabela com Efeito Zebra</h3>
+                <table class="tabela-economias">
+                    <thead>
+                        <tr>
+                            <th>Firstname</th>
+                            <th>Lastname</th>
+                            <th>Savings</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tabela-economias-zebra">
+                        <tr>
+                            <td>Peter</td>
+                            <td>Griffin</td>
+                            <td>$100</td>
+                        </tr>
+                        <tr>
+                            <td>Louis</td>
+                            <td>Griffin</td>
+                            <td>$150</td>
+                        </tr>
+                        <tr>
+                            <td>Joe</td>
+                            <td>Swanson</td>
+                            <td class="destaque-valor">$200</td>
+                        </tr>
+                        <tr>
+                            <td>Cliveland</td>
+                            <td>Brown</td>
+                            <td class="destaque-valor">$250</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="table-section">
+                <h3>Tabela com Bordas Colapsadas</h3>
+                <table class="tabela-bordas-colapsadas">
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Preço</th>
+                            <th>Disponível</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Smartphone</td>
+                            <td>R$ 1.999,00</td>
+                            <td class="status-sim">Sim</td>
+                        </tr>
+                        <tr>
+                            <td>Tablet</td>
+                            <td>R$ 1.499,00</td>
+                            <td class="status-nao">Não</td>
+                        </tr>
+                        <tr>
+                            <td>Notebook</td>
+                            <td>R$ 3.999,00</td>
+                            <td class="status-sim">Sim</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="table-section">
+                <h3>Tabela Responsiva</h3>
+                <div class="tabela-responsiva">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Empresa</th>
+                                <th>Contato</th>
+                                <th>Cargo</th>
+                                <th>País</th>
+                                <th>Telefone</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Acme Inc.</td>
+                                <td>Maria Silva</td>
+                                <td>CEO</td>
+                                <td>Brasil</td>
+                                <td>(11) 9999-8888</td>
+                            </tr>
+                            <tr>
+                                <td>Tech Solutions</td>
+                                <td>João Santos</td>
+                                <td>CTO</td>
+                                <td>Portugal</td>
+                                <td>(351) 9876-5432</td>
+                            </tr>
+                            <tr>
+                                <td>Global Corp.</td>
+                                <td>Carlos Mendes</td>
+                                <td>Diretor</td>
+                                <td>Brasil</td>
+                                <td>(21) 8765-4321</td>
+                            </tr>
+                            <tr>
+                                <td>Nexus Group</td>
+                                <td>Ana Ferreira</td>
+                                <td>Gerente</td>
+                                <td>Angola</td>
+                                <td>(244) 923456789</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="table-section">
+                <h3>Tabela com Hover</h3>
+                <table class="tabela-hover">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Roberto Gomes</td>
+                            <td>roberto@email.com</td>
+                            <td class="status-ativo">Ativo</td>
+                        </tr>
+                        <tr>
+                            <td>Fernanda Martins</td>
+                            <td class="destaque-nome">fernanda@email.com</td>
+                            <td class="status-ativo">Ativo</td>
+                        </tr>
+                        <tr>
+                            <td>Ricardo Alves</td>
+                            <td>ricardo@email.com</td>
+                            <td class="status-inativo">Inativo</td>
+                        </tr>
+                        <tr>
+                            <td>Mariana Costa</td>
+                            <td>mariana@email.com</td>
+                            <td class="status-ativo">Ativo</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

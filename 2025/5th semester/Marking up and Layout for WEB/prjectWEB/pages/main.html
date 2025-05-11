@@ -12,6 +12,15 @@ BV3032345
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Menu</title>
         <link rel="stylesheet" href="../style/main.css" />
+        <style>
+            iframe {
+                border: none;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+            }
+        </style>
+
     </head>
     <body>
         <div class="header">
@@ -20,14 +29,48 @@ BV3032345
         <div class="nav leftSideBar">
             <ul>
                 <li><a href="../index.html">Main</a></li>
-                <li><a href="../pages/bordas.html">Bordas</a></li>
-                <li><a href="../pages/navegação.html">Navegação</a></li>
+                <li><a href="tabelas.html" target="content-frame">Tabelas</a></li>
+                <li><a href="bordas.html" target="content-frame">Bordas</a></li>
+                <li><a href="navegacao.html" target="content-frame">Navegação</a></li>
+                <li><a href="contato.html" target="content-frame">Contato Responsivo</a></li>
+                <li><a href="contato-bootstrap.html" target="content-frame">Contato Responsivo com Bootstrap</a></li>
             </ul>
         </div>
         <div class="content">
-            <p>
-                Favor, selecionar algum conteúdo na barra de navegação lateral
-            </p>
+            <iframe name="content-frame" id="content-frame" frameborder="0" width="100%" height="100%" srcdoc='
+                <html>
+                <head>
+                    <style>
+                        body {
+                            font-family: "Roboto", sans-serif;
+                            background-color: #694553;
+                            color: #fff;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            height: 100vh;
+                            margin: 0;
+                            padding: 20px;
+                            text-align: center;
+                        }
+                        h2 {
+                            color: #ffc5c5;
+                            margin-bottom: 20px;
+                        }
+                        p {
+                            font-size: 18px;
+                            line-height: 1.6;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div>
+                        <h2>Bem-vindo ao Projeto</h2>
+                        <p>Por favor, selecione uma opção na barra de navegação lateral para visualizar o conteúdo correspondente.</p>
+                    </div>
+                </body>
+                </html>
+            '></iframe>
         </div>
         <div class="footer">
             <p>Créditos: Fernanda Martins da Silva (2025)</p>

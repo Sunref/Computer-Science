@@ -40,6 +40,29 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     color: #fff;
     margin-left: 20%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.welcome-message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+}
+
+.welcome-message h2 {
+    color: #ffc5c5;
+    margin-bottom: 20px;
+}
+
+.welcome-message p {
+    font-size: 18px;
+    line-height: 1.6;
 }
 
 /* Estilos do Layout */

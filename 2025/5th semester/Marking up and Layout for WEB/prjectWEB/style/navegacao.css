@@ -1,0 +1,281 @@
+/* Estilos gerais para a página de navegação */
+body {
+    background-color: #694553;
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+.navigation-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #ffc5c5;
+    font-family: "Roboto", sans-serif;
+}
+
+.navigation-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ffc5c5;
+    font-size: 2rem;
+}
+
+.section {
+    background-color: #2a252e;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.section h3 {
+    color: #ffc5c5;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+/* Navegação Horizontal */
+.horizontal-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #080608;
+    border-radius: 5px;
+}
+
+.horizontal-nav ul li {
+    margin: 0;
+}
+
+.horizontal-nav ul li a {
+    display: block;
+    color: #ffc5c5;
+    text-decoration: none;
+    padding: 15px 20px;
+    transition: background-color 0.3s;
+}
+
+.horizontal-nav ul li a:hover {
+    background-color: #964b00;
+}
+
+/* Navegação Vertical */
+.vertical-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #080608;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.vertical-nav ul li a {
+    display: block;
+    color: #ffc5c5;
+    text-decoration: none;
+    padding: 15px 20px;
+    border-bottom: 1px solid #2a252e;
+    transition: background-color 0.3s;
+}
+
+.vertical-nav ul li:last-child a {
+    border-bottom: none;
+}
+
+.vertical-nav ul li a:hover {
+    background-color: #964b00;
+}
+
+/* Menu Dropdown */
+.dropdown-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    background-color: #080608;
+    border-radius: 5px;
+}
+
+.dropdown-nav ul li {
+    position: relative;
+}
+
+.dropdown-nav ul li a {
+    display: block;
+    color: #ffc5c5;
+    text-decoration: none;
+    padding: 15px 20px;
+    transition: background-color 0.3s;
+}
+
+.dropdown-nav ul li a:hover {
+    background-color: #964b00;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #080608;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    border-radius: 0 0 5px 5px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content li {
+    width: 100%;
+}
+
+.dropdown-content li a {
+    padding: 15px 20px;
+    border-bottom: 1px solid #2a252e;
+}
+
+.dropdown-content li:last-child a {
+    border-bottom: none;
+}
+
+/* Navegação com Abas */
+.tabs-container {
+    background-color: #1e1e2f;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.tabs {
+    display: flex;
+    background-color: #080608;
+}
+
+.tab {
+    padding: 15px 20px;
+    cursor: pointer;
+    color: #ffc5c5;
+    transition: background-color 0.3s;
+}
+
+.tab:hover {
+    background-color: #964b00;
+}
+
+.tab.active {
+    background-color: #964b00;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    color: white;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content h4 {
+    color: #ffc5c5;
+    margin-top: 0;
+}
+
+/* Navegação Responsiva */
+.responsive-nav-container {
+    width: 100%;
+}
+
+.responsive-nav {
+    background-color: #080608;
+    border-radius: 5px;
+}
+
+.mobile-menu-btn {
+    display: none;
+    padding: 15px 20px;
+    color: #ffc5c5;
+    cursor: pointer;
+    text-align: center;
+}
+
+.responsive-nav .menu-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.responsive-nav .menu-items li a {
+    display: block;
+    color: #ffc5c5;
+    text-decoration: none;
+    padding: 15px 20px;
+    transition: background-color 0.3s;
+}
+
+.responsive-nav .menu-items li a:hover {
+    background-color: #964b00;
+}
+
+.note {
+    margin-top: 15px;
+    font-style: italic;
+    color: #ffc5c5;
+    text-align: center;
+}
+
+/* Ajustes para o container dentro do iframe */
+.navigation-container {
+    padding-bottom: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .horizontal-nav ul,
+    .dropdown-nav ul {
+        flex-direction: column;
+    }
+    
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        padding-left: 20px;
+    }
+    
+    .tabs {
+        flex-direction: column;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    .responsive-nav .menu-items {
+        display: none;
+        flex-direction: column;
+    }
+    
+    .responsive-nav .menu-items.show {
+        display: flex;
+    }
+}
+
+@media (max-width: 480px) {
+    .navigation-container {
+        padding: 10px;
+    }
+    
+    .section {
+        padding: 15px;
+    }
+    
+    .vertical-nav ul {
+        width: 100%;
+    }
+}

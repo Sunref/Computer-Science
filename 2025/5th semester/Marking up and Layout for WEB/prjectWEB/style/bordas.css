@@ -1,0 +1,237 @@
+/* Estilos gerais para a página de bordas */
+body {
+    background-color: #694553;
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+.borders-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #ffc5c5;
+    font-family: "Roboto", sans-serif;
+}
+
+.borders-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ffc5c5;
+    font-size: 2rem;
+}
+
+/* Grid de exemplos de bordas */
+.borders-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.border-example {
+    background-color: #2a252e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos básicos para todos os parágrafos */
+.border-example p {
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #1e1e2f;
+    color: white;
+    text-align: center;
+}
+
+/* Estilos de bordas - normais */
+.normal-dot {
+    border: 2px dotted #ffc5c5;
+}
+
+.normal-dash {
+    border: 2px dashed #ffc5c5;
+}
+
+.normal-solid {
+    border: 2px solid #ffc5c5;
+}
+
+.normal-double {
+    border: 4px double #ffc5c5;
+}
+
+.normal-groove {
+    border: 5px groove #ffc5c5;
+}
+
+.normal-ridge {
+    border: 5px ridge #ffc5c5;
+}
+
+.normal-inset {
+    border: 5px inset #ffc5c5;
+}
+
+.normal-outset {
+    border: 5px outset #ffc5c5;
+}
+
+.normal-none {
+    border: 5px none #ffc5c5;
+    background-color: #2a252e;
+    outline: 2px solid #080608;
+}
+
+.normal-hidden {
+    border: 5px hidden #ffc5c5;
+    background-color: #2a252e;
+    outline: 2px solid #080608;
+}
+
+.normal-mix {
+    border-top: 5px dotted #ffc5c5;
+    border-right: 5px solid #964b00;
+    border-bottom: 5px dashed #ffc5c5;
+    border-left: 5px double #964b00;
+}
+
+/* Estilos de bordas - grossas */
+.large-dot {
+    border: 6px dotted #ffc5c5;
+}
+
+.large-dash {
+    border: 6px dashed #ffc5c5;
+}
+
+.large-solid {
+    border: 6px solid #ffc5c5;
+}
+
+.large-double {
+    border: 8px double #ffc5c5;
+}
+
+.large-groove {
+    border: 10px groove #ffc5c5;
+}
+
+.large-ridge {
+    border: 10px ridge #ffc5c5;
+}
+
+.large-inset {
+    border: 10px inset #ffc5c5;
+}
+
+.large-outset {
+    border: 10px outset #ffc5c5;
+}
+
+.large-mix {
+    border-top: 10px dotted #ffc5c5;
+    border-right: 10px solid #964b00;
+    border-bottom: 10px dashed #ffc5c5;
+    border-left: 10px double #964b00;
+}
+
+/* Estilos adicionais e criativos de bordas */
+.rounded-border {
+    border: 4px solid #ffc5c5;
+    border-radius: 15px;
+}
+
+.fancy-border {
+    border: 8px solid transparent;
+    border-image: linear-gradient(to right, #ffc5c5, #964b00) 1;
+}
+
+.gradient-border {
+    position: relative;
+    padding: 20px;
+}
+
+.gradient-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 4px solid transparent;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #ffc5c5, #964b00, #ffc5c5) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    z-index: -1;
+}
+
+.animated-border {
+    position: relative;
+    border: none;
+    background: #1e1e2f;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.animated-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(115deg, #ffc5c5, #964b00, #ffc5c5, #964b00);
+    background-size: 50% 100%;
+    z-index: -1;
+    animation: border-animate 3s linear infinite;
+}
+
+.animated-border::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background: #1e1e2f;
+    z-index: -1;
+}
+
+@keyframes border-animate {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .borders-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .borders-container {
+        padding: 10px;
+    }
+    
+    .borders-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .border-example {
+        padding: 15px;
+    }
+}
+
+/* Ajustes para o container dentro do iframe */
+.borders-container {
+    padding-bottom: 20px;
+}
