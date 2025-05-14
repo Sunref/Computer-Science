@@ -16,7 +16,7 @@ BV3032345
     <body>
         <div class="navigation-container">
             <h2>Exemplos de Navegação</h2>
-            
+
             <div class="section">
                 <h3>Navegação Horizontal</h3>
                 <nav class="horizontal-nav">
@@ -29,7 +29,7 @@ BV3032345
                     </ul>
                 </nav>
             </div>
-            
+
             <div class="section">
                 <h3>Navegação Vertical</h3>
                 <nav class="vertical-nav">
@@ -42,7 +42,7 @@ BV3032345
                     </ul>
                 </nav>
             </div>
-            
+
             <div class="section">
                 <h3>Menu Dropdown</h3>
                 <nav class="dropdown-nav">
@@ -50,7 +50,7 @@ BV3032345
                         <li><a href="#inicio">Início</a></li>
                         <li class="dropdown">
                             <a href="#sobre">Sobre ▾</a>
-                            <ul class="dropdown-content">
+                            <ul class="dropdown-content" style="display: none">
                                 <li><a href="#historia">Nossa História</a></li>
                                 <li><a href="#equipe">Equipe</a></li>
                                 <li><a href="#missao">Missão e Valores</a></li>
@@ -58,9 +58,11 @@ BV3032345
                         </li>
                         <li class="dropdown">
                             <a href="#servicos">Serviços ▾</a>
-                            <ul class="dropdown-content">
+                            <ul class="dropdown-content" style="display: none">
                                 <li><a href="#web">Desenvolvimento Web</a></li>
-                                <li><a href="#mobile">Aplicativos Mobile</a></li>
+                                <li>
+                                    <a href="#mobile">Aplicativos Mobile</a>
+                                </li>
                                 <li><a href="#design">Design UX/UI</a></li>
                             </ul>
                         </li>
@@ -69,7 +71,7 @@ BV3032345
                     </ul>
                 </nav>
             </div>
-            
+
             <div class="section">
                 <h3>Navegação com Abas</h3>
                 <div class="tabs-container">
@@ -80,19 +82,31 @@ BV3032345
                     </div>
                     <div class="tab-content active" id="tab1">
                         <h4>Conteúdo da Aba 1</h4>
-                        <p>Este é o conteúdo da primeira aba. Os estilos de navegação por abas são muito úteis para organizar conteúdo em uma única página.</p>
+                        <p>
+                            Este é o conteúdo da primeira aba. Os estilos de
+                            navegação por abas são muito úteis para organizar
+                            conteúdo em uma única página.
+                        </p>
                     </div>
                     <div class="tab-content" id="tab2">
                         <h4>Conteúdo da Aba 2</h4>
-                        <p>Este é o conteúdo da segunda aba. As abas permitem mostrar e esconder seções diferentes de conteúdo sem recarregar a página.</p>
+                        <p>
+                            Este é o conteúdo da segunda aba. As abas permitem
+                            mostrar e esconder seções diferentes de conteúdo sem
+                            recarregar a página.
+                        </p>
                     </div>
                     <div class="tab-content" id="tab3">
                         <h4>Conteúdo da Aba 3</h4>
-                        <p>Este é o conteúdo da terceira aba. Esta é uma forma eficiente de exibir múltiplas seções de informação em um espaço limitado.</p>
+                        <p>
+                            Este é o conteúdo da terceira aba. Esta é uma forma
+                            eficiente de exibir múltiplas seções de informação
+                            em um espaço limitado.
+                        </p>
                     </div>
                 </div>
             </div>
-            
+
             <div class="section">
                 <h3>Navegação Responsiva</h3>
                 <div class="responsive-nav-container">
@@ -107,40 +121,73 @@ BV3032345
                         </ul>
                     </nav>
                 </div>
-                <p class="note">* Redimensione a janela para ver a mudança para menu móvel</p>
+                <p class="note">
+                    * Redimensione a janela para ver a mudança para menu móvel
+                </p>
             </div>
         </div>
-        
+
         <script>
             // Script para as abas funcionarem
-            document.addEventListener('DOMContentLoaded', function() {
-                const tabs = document.querySelectorAll('.tab');
-                tabs.forEach(tab => {
-                    tab.addEventListener('click', function() {
-                        // Remove 'active' class from all tabs
-                        tabs.forEach(t => t.classList.remove('active'));
-                        // Add 'active' class to clicked tab
-                        this.classList.add('active');
-                        
-                        // Hide all tab content
-                        document.querySelectorAll('.tab-content').forEach(content => {
-                            content.classList.remove('active');
-                        });
-                        
-                        // Show the corresponding tab content
-                        const tabId = this.getAttribute('data-tab');
-                        document.getElementById(tabId).classList.add('active');
+            document.addEventListener("DOMContentLoaded", function () {
+                document
+                    .querySelectorAll(".dropdown-content")
+                    .forEach((dropdown) => {
+                        dropdown.style.display = "none";
+                    });
+
+                const tabs = document.querySelectorAll(".tab");
+                tabs.forEach((tab) => {
+                    tab.addEventListener("click", function () {
+                        tabs.forEach((t) => t.classList.remove("active"));
+                        this.classList.add("active");
+
+                        document
+                            .querySelectorAll(".tab-content")
+                            .forEach((content) => {
+                                content.classList.remove("active");
+                            });
+
+                        const tabId = this.getAttribute("data-tab");
+                        document.getElementById(tabId).classList.add("active");
                     });
                 });
-                
+
                 // Toggle mobile menu
-                const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+                const mobileMenuBtn =
+                    document.querySelector(".mobile-menu-btn");
                 if (mobileMenuBtn) {
-                    mobileMenuBtn.addEventListener('click', function() {
-                        const menuItems = document.querySelector('.menu-items');
-                        menuItems.classList.toggle('show');
+                    mobileMenuBtn.addEventListener("click", function () {
+                        const menuItems = document.querySelector(".menu-items");
+                        menuItems.classList.toggle("show");
                     });
                 }
+
+                document
+                    .querySelectorAll(".dropdown")
+                    .forEach((dropdownItem) => {
+                        dropdownItem.addEventListener(
+                            "mouseleave",
+                            function () {
+                                const dropdownContent =
+                                    this.querySelector(".dropdown-content");
+                                if (dropdownContent) {
+                                    dropdownContent.style.display = "none";
+                                }
+                            },
+                        );
+
+                        dropdownItem.addEventListener(
+                            "mouseenter",
+                            function () {
+                                const dropdownContent =
+                                    this.querySelector(".dropdown-content");
+                                if (dropdownContent) {
+                                    dropdownContent.style.display = "block";
+                                }
+                            },
+                        );
+                    });
             });
         </script>
     </body>

@@ -118,7 +118,7 @@ body {
 }
 
 .dropdown-content {
-    display: none;
+    display: none !important;
     position: absolute;
     background-color: #080608;
     min-width: 200px;
@@ -128,7 +128,7 @@ body {
 }
 
 .dropdown:hover .dropdown-content {
-    display: block;
+    display: block !important;
 }
 
 .dropdown-content li {
@@ -243,10 +243,11 @@ body {
     }
     
     .dropdown-content {
-        position: static;
-        box-shadow: none;
-        padding-left: 20px;
-    }
+            position: static;
+            display: none !important;
+            box-shadow: none;
+            padding-left: 20px;
+        }
     
     .tabs {
         flex-direction: column;
