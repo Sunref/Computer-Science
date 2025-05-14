@@ -1,0 +1,152 @@
+/* Estilos básicos para a página de contato simples - não responsiva */
+body {
+    background-color: #694553;
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    color: #ffc5c5;
+    min-width: 800px; /* Força largura mínima para evitar que a página seja responsiva */
+}
+
+.container {
+    width: 800px;
+    margin: 0 auto;
+    padding: 30px 0;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ffc5c5;
+}
+
+h2 {
+    color: #ffc5c5;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #ffc5c5;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.contact-wrapper {
+    background-color: #2a252e;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 740px; /* Largura fixa do container menos o padding */
+}
+
+/* Estilos para a seção de informações */
+.info-section {
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.contact-info {
+    margin-bottom: 20px;
+}
+
+.info-item {
+    margin-bottom: 15px;
+}
+
+.label {
+    font-weight: bold;
+    color: #ffc5c5;
+    display: inline-block;
+    width: 80px;
+}
+
+/* Estilos para links de redes sociais */
+.social-links {
+    display: inline-block;
+}
+
+.social-links a {
+    margin-right: 15px;
+}
+
+.social-link {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #080608;
+    color: #ffc5c5;
+    text-decoration: none;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+}
+
+.social-link:hover {
+    background-color: #964b00;
+}
+
+/* Estilos para o formulário */
+.form-section {
+    border-top: 1px solid #964b00;
+    padding-top: 30px;
+    width: 100%;
+}
+
+.contact-form {
+    width: 100%;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group label {
+    font-weight: bold;
+}
+
+.input-group input,
+.input-group textarea {
+    padding: 10px;
+    background-color: #1e1e2f;
+    border: 1px solid #694553;
+    border-radius: 5px;
+    color: #fff;
+    font-family: inherit;
+    width: 500px;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    outline: none;
+    border-color: #ffc5c5;
+}
+
+.submit-button {
+    background-color: #ffc5c5;
+    color: #080608;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+}
+
+.submit-button:hover {
+    background-color: #964b00;
+    color: #ffc5c5;
+}
+
+/* Estilos para o rodapé */
+.footer {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #ffc5c5;
+}
