@@ -23,8 +23,10 @@ BV3032345
     </head>
     <body>
         <div class="header">
+            <button class="menu-toggle" id="menuToggle">☰</button>
             <p>Este é o menu principal do projeto.</p>
         </div>
+        <div class="overlay" id="overlay"></div>
         <div class="nav leftSideBar">
             <ul>
                 <li><a href="../index.html">Main</a></li>
@@ -43,7 +45,7 @@ BV3032345
                     >
                 </li>
                 <li>
-                    <a href="contato.html" target="content-frame"
+                    <a href="contatoResponivo.html" target="content-frame"
                         >Contato Responsivo</a
                     >
                 </li>
@@ -100,5 +102,46 @@ BV3032345
         <div class="footer">
             <p>Créditos: Fernanda Martins da Silva (2025)</p>
         </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const menuToggle = document.getElementById("menuToggle");
+                const sidebar = document.querySelector(".leftSideBar");
+                const overlay = document.getElementById("overlay");
+                const body = document.body;
+
+                // Function to toggle menu
+                function toggleMenu() {
+                    sidebar.classList.toggle("active");
+                    overlay.classList.toggle("active");
+                    body.classList.toggle("menu-open");
+                }
+
+                // Event listeners
+                menuToggle.addEventListener("click", toggleMenu);
+                overlay.addEventListener("click", toggleMenu);
+
+                // Close menu when clicking on a link (for mobile)
+                const menuLinks = sidebar.querySelectorAll("a");
+                menuLinks.forEach((link) => {
+                    link.addEventListener("click", function () {
+                        if (window.innerWidth <= 768) {
+                            toggleMenu();
+                        }
+                    });
+                });
+
+                // Close menu when window is resized above mobile breakpoint
+                window.addEventListener("resize", function () {
+                    if (
+                        window.innerWidth > 768 &&
+                        sidebar.classList.contains("active")
+                    ) {
+                        sidebar.classList.remove("active");
+                        overlay.classList.remove("active");
+                        body.classList.remove("menu-open");
+                    }
+                });
+            });
+        </script>
     </body>
 </html>

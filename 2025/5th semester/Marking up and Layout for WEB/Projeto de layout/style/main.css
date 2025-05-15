@@ -1,3 +1,10 @@
+/*
+
+Atividade por: Fernanda Martins da Silva
+BV3032345
+
+*/
+
 /* Estilos gerais */
 body {
     margin: 0;
@@ -7,17 +14,37 @@ body {
     font-family: "Roboto", sans-serif;
     background-color: #1e1e2f;
     color: #964b00;
+    position: relative;
 }
 
 /* Estilos do cabeçalho */
+/* Estilos do header */
 .header {
     height: 10%;
     background-color: #080608;
     text-align: center;
-    line-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #ffc5c5;
     font-size: 1.5rem;
     font-weight: bold;
+    position: relative;
+}
+
+/* Botão do menu responsivo (hamburguer) */
+.menu-toggle {
+    display: none;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #ffc5c5;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 100;
 }
 
 /* Estilos do rodapé */
@@ -44,6 +71,7 @@ body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    transition: margin-left 0.3s ease;
 }
 
 .welcome-message {
@@ -76,6 +104,9 @@ body {
     left: 0;
     border-radius: 0 10px 10px 0;
     box-shadow: 4px 0 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 10;
+    overflow-y: auto;
 }
 
 .leftSideBar ul {
@@ -89,10 +120,77 @@ body {
     color: #ffc5c5;
     text-decoration: none;
     display: block;
-    padding: 10px;
+    padding: 15px;
     transition: background-color 0.3s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .leftSideBar ul li a:hover {
     background-color: black;
+}
+
+/* Estilos para a sobreposição quando o menu está aberto em telas pequenas */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+}
+
+/* Media Queries para responsividade */
+@media (max-width: 992px) {
+    .leftSideBar {
+        width: 25%;
+    }
+    
+    .content {
+        margin-left: 25%;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    .leftSideBar {
+        width: 250px;
+        left: -250px;
+        top: 0;
+        height: 100%;
+        border-radius: 0;
+    }
+    
+    .leftSideBar.active {
+        left: 0;
+    }
+    
+    .content {
+        margin-left: 0;
+    }
+    
+    .overlay.active {
+        display: block;
+    }
+    
+    body.menu-open {
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 480px) {
+    .leftSideBar {
+        width: 100%;
+        left: -100%;
+    }
+    
+    .leftSideBar ul li a {
+        padding: 18px 15px;
+    }
 }
