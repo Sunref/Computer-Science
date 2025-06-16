@@ -1,0 +1,155 @@
+<!--
+ * Exercícios de JavaScript
+ * Fernanda Martins da Silva bv3032345
+-->
+
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Lista de Exercícios JavaScript</title>
+        <link rel="stylesheet" href="css/styles.css" />
+    </head>
+    <body>
+        <header>
+            <h1>Lista de Exercícios JavaScript</h1>
+        </header>
+
+        <main>
+            <section id="ex1">
+                <h2>Exercício 1 - Inverter String</h2>
+                <input
+                    type="text"
+                    id="textoInverter"
+                    placeholder="Digite um texto para inverter"
+                />
+                <button onclick="inverterTexto()">Inverter</button>
+                <p id="resultadoEx1"></p>
+            </section>
+
+            <section id="ex2">
+                <h2>Exercício 2 - Data Atual</h2>
+                <p id="dataAtual"></p>
+            </section>
+
+            <section id="ex3">
+                <h2>Exercício 3 - Verificar Ano Bissexto</h2>
+                <input
+                    type="number"
+                    id="anoBissexto"
+                    placeholder="Digite um ano"
+                />
+                <button onclick="verificarAnoBissexto()">Verificar</button>
+                <p id="resultadoEx3"></p>
+            </section>
+
+            <section id="ex4">
+                <h2>Exercício 4 - Juntar Strings</h2>
+                <input
+                    type="text"
+                    id="stringArray"
+                    placeholder="Digite palavras separadas por espaço"
+                />
+                <button onclick="juntarStrings()">Juntar</button>
+                <p id="resultadoEx4"></p>
+            </section>
+
+            <section id="ex5">
+                <h2>Exercício 5 - Encontrar Valor no Vetor</h2>
+                <input
+                    type="number"
+                    id="valorBusca"
+                    placeholder="Digite um valor para buscar"
+                />
+                <button onclick="buscarValor()">Buscar</button>
+                <p id="resultadoEx5"></p>
+            </section>
+
+            <section id="ex6">
+                <h2>Exercício 6 - Remover Vogais</h2>
+                <input
+                    type="text"
+                    id="textoVogais"
+                    placeholder="Digite um texto"
+                />
+                <button onclick="removerVogais()">Remover Vogais</button>
+                <p id="resultadoEx6"></p>
+            </section>
+
+            <section id="ex7">
+                <h2>Exercício 7 - Ordenar Vetor</h2>
+                <input type="number" id="valor1" placeholder="Valor 1" />
+                <input type="number" id="valor2" placeholder="Valor 2" />
+                <input type="number" id="valor3" placeholder="Valor 3" />
+                <button onclick="ordenarVetor()">Ordenar</button>
+                <p id="resultadoEx7"></p>
+            </section>
+
+            <section id="ex8">
+                <h2>Exercício 8 - Buscar String por Posição</h2>
+                <input
+                    type="number"
+                    id="posicaoVetor"
+                    placeholder="Digite um número (0-10)"
+                    min="0"
+                    max="10"
+                />
+                <button onclick="buscarString()">Buscar String</button>
+                <p id="resultadoEx8"></p>
+            </section>
+
+            <section id="ex9">
+                <h2>Exercício 9 - Comparar Textos</h2>
+                <input
+                    type="text"
+                    id="texto1"
+                    placeholder="Digite o primeiro texto"
+                    required
+                />
+                <input
+                    type="text"
+                    id="texto2"
+                    placeholder="Digite o segundo texto"
+                    required
+                />
+                <button onclick="compararTextos()">Comparar</button>
+                <p id="resultadoEx9"></p>
+            </section>
+
+            <section id="ex10">
+                <h2>Exercício 10 - Login e Senha</h2>
+                <input
+                    type="text"
+                    id="login"
+                    placeholder="Digite seu nome completo"
+                    required
+                />
+                <input
+                    type="text"
+                    id="senha"
+                    placeholder="Digite seu prontuário (ex: bv222222)"
+                    required
+                />
+                <button onclick="validarLogin()">Validar</button>
+                <p id="resultadoEx10"></p>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 - Exercícios JavaScript</p>
+        </footer>
+
+        <!-- Scripts -->
+        <script src="js/bv3032345-ex1.js"></script>
+        <script src="js/bv3032345-ex2.js"></script>
+        <script src="js/bv3032345-ex3.js"></script>
+        <script src="js/bv3032345-ex4.js"></script>
+        <script src="js/bv3032345-ex5.js"></script>
+        <script src="js/bv3032345-ex6.js"></script>
+        <script src="js/bv3032345-ex7.js"></script>
+        <script src="js/bv3032345-ex8.js"></script>
+        <script src="js/bv3032345-ex9.js"></script>
+        <script src="js/bv3032345-ex10.js"></script>
+    </body>
+</html>
